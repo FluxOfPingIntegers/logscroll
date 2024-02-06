@@ -1,0 +1,21 @@
+{
+  "name": "logscroll",
+  "version": "1.0.0",
+  "description": "a logger utility for node",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/FluxOfPingIntegers/logscroll.git)"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": "Ryan S",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.16"
+  }
+}
