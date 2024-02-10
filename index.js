@@ -1,23 +1,36 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var path = require("path");
 var LogScroll = /** @class */ (function () {
     function LogScroll() {
-        this.fileLocation = this.getCurrentFileLocation();
+        this.absolutePath = this.fetchAbsolutePath();
+        this.fileName = this.fetchFileName();
     }
-    LogScroll.prototype.getCurrentFileLocation = function () {
-        // const fileUrl = import.meta.url;
-        // const filePath = new URL(fileUrl).pathname;
-        // const currentDirectory = process.cwd();
-        // const rootDirectory = path.resolve(__dirname, '../../');
-        // const currentLocation = path.relative(currentDirectory, rootDirectory);
-        var srcPath = path.join(__dirname, "../");
+    LogScroll.prototype.fetchAbsolutePath = function () {
+        var absPath = process.cwd().concat("/");
+        return absPath;
+    };
+    LogScroll.prototype.getAbsolutePath = function () {
+        return this.absolutePath;
+    };
+    LogScroll.prototype.getFileName = function () {
+        return this.fileName;
+    };
+    // TODO: bug - always specifies file class is defined in.  Needs to be file where initialized.
+    LogScroll.prototype.fetchFileName = function () {
         var fileName = path.basename(__filename);
         return fileName;
     };
+    LogScroll.prototype.logAbsolutePath = function () {
+        console.log(this.getAbsolutePath());
+    };
+    LogScroll.prototype.logFileName = function () {
+        console.log(this.getFileName());
+    };
     LogScroll.prototype.logLocation = function () {
-        console.log("At Location:", this.fileLocation);
+        var location = this.getAbsolutePath().concat(this.getFileName());
+        console.log(location);
     };
     return LogScroll;
 }());
-exports["default"] = LogScroll;
+exports.default = LogScroll;
