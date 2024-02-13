@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = require("path");
 var LogScroll = /** @class */ (function () {
-    function LogScroll() {
+    function LogScroll(callerLocation) {
+        this.callerLocation = callerLocation;
         this.absolutePath = this.fetchAbsolutePath();
         this.fileName = this.fetchFileName();
     }
